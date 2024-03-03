@@ -17,10 +17,13 @@ const userSchema = new Schema({
     required: true,
     minlength: 8,
   },
-  team: {
-    type: String,
-    default: [],
-  },
+  tasks: [
+    {
+      type: mongoose.Types.ObjectId,
+      ref: "Task",
+      required: true,
+    },
+  ],
 });
 
 export default mongoose.model("User", userSchema);
